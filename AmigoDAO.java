@@ -35,7 +35,7 @@ public class AmigoDAO {
                 String email = res.getString("email");
                 int telefone = res.getInt("telefone");
 
-                amigo objeto = new amigo(id,nome,email,telefone);
+                Amigo objeto = new Amigo(nome,id,email,telefone);
                 minhaLista.add(objeto);
             }
 
