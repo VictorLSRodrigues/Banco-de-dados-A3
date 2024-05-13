@@ -57,7 +57,7 @@ public class Amigo {
     }
         @Override
     public String toString() {
-        return super.toString()+ ",nome=" + nome + ", email=" + email + ",telefone=" + telefone;
+        return super.toString()+ "nome=" + nome + ", email=" + email + ",telefone=" + telefone;
     }
 
     /*  ABAIXO OS MÉTODOS PARA USO JUNTO COM O DAO
