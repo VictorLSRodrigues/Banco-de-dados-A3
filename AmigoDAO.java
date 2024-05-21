@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Amigo;
+import modelo.Amigo;
 
 /**
  * Realiza a persistência de dados.
@@ -32,10 +32,9 @@ public class AmigoDAO {
             while (res.next()) {
                 int id = res.getInt("id");
                 String nome = res.getString("nome");
-                String email = res.getString("email");
                 int telefone = res.getInt("telefone");
 
-                Amigo objeto = new Amigo(nome,id,email,telefone);
+                Amigo objeto = new Amigo(nome,telefone,id);
                 minhaLista.add(objeto);
             }
 
@@ -115,7 +114,6 @@ public class AmigoDAO {
 
             stmt.setInt(1, objeto.getId());
             stmt.setString(2, objeto.getNome());
-            stmt.setString(3, objeto.getEmail());
             stmt.setInt(4, objeto.getTelefone());
             
 
@@ -155,7 +153,6 @@ public class AmigoDAO {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
 
             stmt.setString(1, objeto.getNome());
-            stmt.setString(2, objeto.getEmail());
             stmt.setInt(3, objeto.getTelefone());
             stmt.setInt(4, objeto.getId());
 
@@ -183,7 +180,6 @@ public class AmigoDAO {
             res.next();
 
             objeto.setNome(res.getString("nome"));
-            objeto.setEmail(res.getString("email"));
             objeto.setTelefone(res.getInt("telefone"));
 
             stmt.close();
